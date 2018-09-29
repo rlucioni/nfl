@@ -32,9 +32,17 @@ sns.set(style='darkgrid')
 def is_named(row):
     return not row.lower().startswith('unnamed')
 
-df = pd.read_csv('data/2018.csv', usecols=is_named)
-df.columns = df.columns.str.lower()
-df = df.applymap(lambda s: s.lower() if type(s) == str else s)
+def lower(element):
+    return element.lower() if type(element) == str else element
+
+def load(csv_path):
+    df = pd.read_csv(csv_path, usecols=is_named)
+    df.columns = df.columns.str.lower()
+    df = df.applymap(lower)
+
+    return df
+
+df = load('data/2018.csv')
 df.head()
 
 df.gameid.nunique()
