@@ -1,0 +1,2 @@
+jupyter==1.0.0
+jupytext==0.7.1
