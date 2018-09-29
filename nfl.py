@@ -33,4 +33,40 @@ def is_named(row):
     return not row.lower().startswith('unnamed')
 
 df = pd.read_csv('data/2018.csv', usecols=is_named)
+df.columns = df.columns.str.lower()
+df = df.applymap(lambda s: s.lower() if type(s) == str else s)
 df.head()
+
+df.gameid.nunique()
+
+len(df)
+
+df.playtype.value_counts()
+
+df.formation.value_counts()
+
+len(df[df.isrush == True])
+
+df.rushdirection.value_counts()
+
+len(df[df.ispass == True])
+
+df.passtype.value_counts()
+
+len(df[df.istouchdown == True])
+
+len(df[df.playtype == 'field goal'])
+
+len(df[df.isinterception == True])
+
+len(df[df.isfumble == True])
+
+len(df[df.issack == True])
+
+len(df[df.ispenalty == True])
+
+df.offenseteam.value_counts()
+
+df.defenseteam.value_counts()
+
+len(df.defenseteam.value_counts())
