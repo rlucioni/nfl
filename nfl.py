@@ -78,3 +78,9 @@ df.offenseteam.value_counts()
 df.defenseteam.value_counts()
 
 len(df.defenseteam.value_counts())
+
+f, ax = plt.subplots(figsize=(12, 6))
+td_df = df[df.istouchdown == True]
+sns.countplot(x='offenseteam', data=td_df, order=td_df.offenseteam.value_counts().index, color='b')
+
+

@@ -10,4 +10,6 @@ Fun with NFL play-by-play data. Data from [NFLsavant.com](http://www.nflsavant.c
 - How many turnovers (fumbles and interceptions)?
 - How many sacks?
 - How many penalties?
-- Which teams have the most of the above? Which have the least?
+- Play distribution by team
+- Touchdown distribution by team
+- Sack distribution by team
