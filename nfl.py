@@ -20,6 +20,17 @@
 
 # %autosave 0
 
-print('hello')
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
 
-print('yo')
+pd.set_option('display.max_columns', 100)
+sns.set(style='darkgrid')
+
+# pandas reads empty csv columns (',,') as 'Unnamed N' where N is the column number
+def is_named(row):
+    return not row.lower().startswith('unnamed')
+
+df = pd.read_csv('data/2018.csv', usecols=is_named)
+df.head()
