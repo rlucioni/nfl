@@ -79,8 +79,48 @@ df.defenseteam.value_counts()
 
 len(df.defenseteam.value_counts())
 
-f, ax = plt.subplots(figsize=(12, 6))
+def scale(x=20, y=5):
+    return plt.subplots(figsize=(x, y))
+
+scale()
+sns.countplot(x=df.offenseteam, order=df.offenseteam.value_counts().index, color='b')
+
+scale()
+sns.countplot(x=df.offenseteam, hue=df.ispass, order=df.offenseteam.value_counts().index)
+
+scale()
 td_df = df[df.istouchdown == True]
-sns.countplot(x='offenseteam', data=td_df, order=td_df.offenseteam.value_counts().index, color='b')
+sns.countplot(x=td_df.offenseteam, order=td_df.offenseteam.value_counts().index, color='b')
+
+scale()
+sns.countplot(x=td_df.offenseteam, hue=td_df.ispass, order=td_df.offenseteam.value_counts().index)
+
+scale()
+fg_df = df[df.playtype == 'field goal']
+sns.countplot(x=fg_df.offenseteam, order=fg_df.offenseteam.value_counts().index, color='b')
+
+scale()
+sack_df = df[df.issack == True]
+sns.countplot(x=sack_df.defenseteam, order=sack_df.defenseteam.value_counts().index, color='b')
+
+scale()
+int_df = df[df.isinterception == True]
+sns.countplot(x=int_df.defenseteam, order=int_df.defenseteam.value_counts().index, color='b')
+
+scale()
+fumble_df = df[df.isfumble == True]
+sns.countplot(x=fumble_df.defenseteam, order=fumble_df.defenseteam.value_counts().index, color='b')
+
+scale()
+turnover_df = df[(df.isinterception == True) | (df.isfumble == True)]
+sns.countplot(x=turnover_df.defenseteam, order=turnover_df.defenseteam.value_counts().index, color='b')
+
+yards_df = df.groupby('offenseteam')['yards'].sum().sort_values(ascending=False)
+
+scale()
+sns.barplot(x=df.offenseteam, y=df.yards, estimator=sum, order=yards_df.index, ci=None, color='b')
+
+scale(x=10, y=15)
+sns.stripplot(x=df.yards, y=df.offenseteam, hue=df.ispass, alpha=0.75)
 
 
