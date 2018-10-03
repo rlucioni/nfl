@@ -11,5 +11,8 @@ Fun with NFL play-by-play data. Data from [NFLsavant.com](http://www.nflsavant.c
 - How many sacks?
 - How many penalties?
 - Play distribution by team
-- Touchdown distribution by team
+- TD distribution by team
 - Sack distribution by team
+- TD distance distance distribution by team
+- Team red zone percentage (TD or FG)
+- Team yard totals by week
