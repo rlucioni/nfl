@@ -16,3 +16,4 @@ Fun with NFL play-by-play data. Data from [NFLsavant.com](http://www.nflsavant.c
 - TD distance distance distribution by team
 - Team red zone percentage (TD or FG)
 - Team yard totals by week
+- Synthesize a timestamp for each play, plot play start yards over time?
